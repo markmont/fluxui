@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app ng-csp>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="-1">
+
+    <script src="../js/angular.min.js"></script>
+    <script src="../js/controller.js"></script>
+    <script src='../js/common.js'></script>
+    <script src='../js/handlers.js'></script>
+
+    <link rel="stylesheet" href="../css/fluxui.css">
+
+  </head>
+
+  <body data-custom-load="true" data-name="fluxui" data-tools="newlib glibc pnacl" data-configs="Debug Release" data-path="../{tc}/{config}">
+
+    <h1>Flux UI</h1>
+    <h2>Status: <code id="statusField">NO-STATUS</code></h2>
+
+    <div id='fluxui' ng-controller="fluxuiCtrl">
+      <button ng-click="connectToFlux()">Connect</button>
+      <button ng-click="disconnectFromFlux()">Disconnect</button>
+      <p>Connection status: {{ connectionStatus }}</p>
+    </div> <!-- #fluxui -->
+
+    <hr>
+    <p><b>Log:</b></p>
+    <pre id="log" style="font-weight: bold"></pre>
+    <!-- The NaCl plugin will be embedded inside the element with id "listener".
+        See common.js.-->
+    <div id="listener"></div>
+
+  </body>
+</html>
